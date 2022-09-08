@@ -1,0 +1,40 @@
+//Implemente uma função iterativa (usando laço) para calcular o máximo divisor comum de dois
+//números inteiros positivos, MDC(x, y), usando o algoritmo de Euclides. Este algoritmo é baseado no
+//fato de que se o resto da divisão de x por y, representado por r, for igual a zero, y é o MDC. Se o
+//resto r for diferente de zero, o MDC de x e y é igual ao MDC de y e r. O processo se repete até que
+//o valor do resto da divisão seja zero.
+
+#include <stdio.h>
+
+int mdc(x,y);
+
+int main(){
+    int x,y,r,result;
+    
+    printf("Digite dois numeros para serem calculados: "); 
+    scanf("%d", &x);
+    scanf("%d", &y);
+
+    r = x%y;
+
+    if (r == 0){
+        result = y;
+        printf("O mdc dos numeros digitados e: %d ",result);
+    }
+
+    else {
+        result = mdc(y,r);
+        printf("O mdc dos numeros digitados e: %d ", result);
+    }
+}
+
+int mdc(x,y){
+    int resto;
+    while (y != 0 ){
+        resto = x%y;
+        x = y;
+        y = resto;
+    return x;
+    }
+}
+
