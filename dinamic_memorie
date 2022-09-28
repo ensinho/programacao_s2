@@ -1,0 +1,45 @@
+#include <stdio.h>
+# include <stdlib.h>
+
+float captura(int n, float* x);
+float media (int n, float* x);
+float variancia (int n, float* x, float m);
+
+int main (void ) {
+int n; /∗ número de valores ∗/
+float *x; /∗ vetor dos valores ∗/
+printf("Entre com o numero de valores: ");
+scanf(”%d", &n);
+x = (float *) malloc(n*sizeof(float));
+if (x == NULL) {
+  printf("Memoria insuficiente.\n");
+  exit(1);
+}
+
+captura(n, x);
+float m = media(n, x);
+float v = variancia(n, x, m);
+printf("Media: % f\ nVariancia: % f\ n", m, v);
+free(x);
+return 0;
+}
+
+void captura (int n, float* x) {
+printf("Entre com os valores:\ n");
+for (int i=0; i<n; ++i)
+scanf("% f", & x[i]);
+}
+
+float media (int n, float* x) {
+float m = 0.0 f;
+for (int i=0; i<n; ++i)
+m += x[i];
+return m / n;
+}
+
+float variancia (int n, float* x, float m) {
+float v = 0.0 f;
+for (int i=0; i<n; ++i)
+v += (x[i] - m) * (x[i] - m);
+return v / n;
+}
