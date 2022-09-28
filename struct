@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+struct ponto {
+float x;
+float y;
+};
+
+int main (void ) {
+struct ponto p;
+printf("Digite as coordenadas do ponto(x y): ");
+scanf("%f %f", &p.x, &p.y);
+
+/* Basta escrever &p.x em lugar de
+&(p.x). O operador de acesso ao
+campo da estrutura tem
+precedência sobre o operador
+“endereço de”. */
+
+printf("O ponto fornecido foi: (%.2f,%.2 f)\ n", p.x, p.y);
+return 0;
+}
